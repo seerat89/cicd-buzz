@@ -6,6 +6,6 @@ if [ "$TRAVIS_BRANCH" = "master" ]; then
 else
     TAG="$TRAVIS_BRANCH"
 fi
-DOCKER_PATH=$DOCKER_USER/$DOCKERHUB_REPO
+DOCKER_PATH=$DOCKER_USER/$DOCKERHUB_REPO:$TAG
 docker build -f Dockerfile -t $DOCKER_PATH .
-docker push $DOCKER_PATH:TAG
+docker push $DOCKER_PATH
